@@ -21,7 +21,7 @@ class Dashboard extends Model {
     }
 
     public function loadWidgets(){
-        $this->_widgets=Widget::findAll(array("dashboard_id"=>$this->id));
+        $this->_widgets=WidgetView::findAll(array("dashboard_id"=>$this->id));
 
     }
 }

@@ -34,7 +34,7 @@ $nano->get("/dashboards",$dashboards);
 $dashboard_get=function($n,$params){
     $d=Dashboard::get(intval($params['id']));
     $d->loadWidgets();
-
+    $d->_widgettypes= Widgettype::findAll();
 
     return $d;
 };

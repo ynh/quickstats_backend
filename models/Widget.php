@@ -7,6 +7,26 @@
  * To change this template use File | Settings | File Templates.
  */
 
+class WidgetView extends Model {
+
+
+
+    public $id;
+    public $wigettype_id;
+    public $datasource_id;
+    public $dashboard_id;
+    public $datasource_settings;
+    public $settings;
+    public $wthandler;
+    public $dshandler;
+
+    public static function getTableName()
+    {
+        return "widget_view";
+    }
+}
+
+
 class Widget extends Model {
 
 
@@ -17,6 +37,7 @@ class Widget extends Model {
     public $dashboard_id;
     public $datasource_settings;
     public $settings;
+
 
     public static function getTableName()
     {
