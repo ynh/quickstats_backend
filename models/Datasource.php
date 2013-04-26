@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class Widgettype extends Model {
+class Datasource extends Model {
 
 
 
@@ -17,6 +17,6 @@ class Widgettype extends Model {
 
     public static function getTableName()
     {
-        return "widgettypes";
+        return "datasources";
     }
 }

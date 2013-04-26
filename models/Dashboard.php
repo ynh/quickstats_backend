@@ -7,16 +7,15 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class Widgettype extends Model {
+class Dashboard extends Model {
 
 
 
     public $id;
-    public $name;
-    public $handler;
+    public $title;
 
     public static function getTableName()
     {
-        return "widgettypes";
+        return "dashboards";
     }
 }
