@@ -165,7 +165,7 @@ class NanoFramework
             $matches = array();
             if (preg_match($exp, $url, $matches)) {
                 $data = call_user_func_array($fn, array($this, array_map('urldecode', $matches)));
-                if (is_array($data)) {
+                if (is_array($data)||is_object($data)) {
                     $this->json($data);
                 }
                 exit(0);

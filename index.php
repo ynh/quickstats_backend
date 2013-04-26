@@ -3,6 +3,7 @@ include 'Framework.php';
 include 'models/Widgettype.php';
 include 'models/Dashboard.php';
 include 'models/Datasource.php';
+include 'models/Widget.php';
 $nano=new NanoFramework();
 $dbnew = new PDO('mysql:host=localhost;dbname=stat',
     'root',
@@ -28,6 +29,16 @@ $dashboards=function(){
     return Dashboard::findAll();
 };
 $nano->get("/dashboards",$dashboards);
+
+
+$dashboard_get=function($n,$params){
+    $d=Dashboard::get(intval($params['id']));
+    $d->loadWidgets();
+
+
+    return $d;
+};
+$nano->get("/dashboards/:id",$dashboard_get);
 
 
 $nano->run();

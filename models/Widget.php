@@ -7,21 +7,19 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class Dashboard extends Model {
+class Widget extends Model {
 
 
 
     public $id;
-    public $title;
-    public $_widgets;
+    public $wigettype_id;
+    public $datasource_id;
+    public $dashboard_id;
+    public $datasource_settings;
+    public $settings;
 
     public static function getTableName()
     {
-        return "dashboards";
-    }
-
-    public function loadWidgets(){
-        $this->_widgets=Widget::findAll(array("dashboard_id"=>$this->id));
-
+        return "widgets";
     }
 }
