@@ -9,11 +9,12 @@ class DB
      * @param array $parameters
      * @return PDOStatement
      */
-    public static function execute($query = null, $parameters = array())
+    public static function execute($query = null, $parameters = array(),$tdb=null)
     {
         global $dbnew;
-
-        $statement = $dbnew->prepare($query);
+        if($tdb==null)
+            $tdb=$dbnew;
+        $statement = $tdb->prepare($query);
 
 
         foreach ($parameters as $k => $v) {
@@ -34,9 +35,9 @@ class DB
      * @param array $parameter
      * @return array|null
      */
-    public static function run($query, $parameter = array())
+    public static function run($query, $parameter = array(),$tdb=null)
     {
-        $statement = self::execute($query, $parameter);
+        $statement = self::execute($query, $parameter,$tdb);
         if (startsWith($query, "SELECT")) {
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         } else {

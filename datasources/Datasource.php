@@ -11,4 +11,8 @@ class DatasourceStructure {
     public function getSettings(){
 
     }
+
+    public function query($settings){
+        return array();
+    }
 }

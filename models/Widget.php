@@ -12,6 +12,7 @@ class WidgetView extends Model {
 
 
     public $id;
+    public $title;
     public $widgettype_id;
     public $datasource_id;
     public $dashboard_id;
@@ -21,6 +22,7 @@ class WidgetView extends Model {
     public $dshandler;
     public function onLoad(){
         $this->datasource_settings=@json_decode($this->datasource_settings);
+        $this->settings=@json_decode($this->settings);
     }
     public static function getTableName()
     {
@@ -35,11 +37,13 @@ class Widget extends Model {
 
 
     public $id;
-    public $wigettype_id;
+    public $title;
+    public $widgettype_id;
     public $datasource_id;
     public $dashboard_id;
     public $datasource_settings;
     public $settings;
+    public $order;
 
 
     public static function getTableName()
