@@ -12,16 +12,19 @@ class WidgetView extends Model {
 
 
     public $id;
-    public $wigettype_id;
+    public $widgettype_id;
     public $datasource_id;
     public $dashboard_id;
     public $datasource_settings;
     public $settings;
     public $wthandler;
     public $dshandler;
-
+    public function onLoad(){
+        $this->datasource_settings=@json_decode($this->datasource_settings);
+    }
     public static function getTableName()
     {
+
         return "widget_view";
     }
 }

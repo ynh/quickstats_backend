@@ -1,5 +1,6 @@
 <?php
 include 'Framework.php';
+include 'datasources/Datasource.php';
 include 'models/Widgettype.php';
 include 'models/Dashboard.php';
 include 'models/Datasource.php';
@@ -35,6 +36,7 @@ $dashboard_get=function($n,$params){
     $d=Dashboard::get(intval($params['id']));
     $d->loadWidgets();
     $d->_widgettypes= Widgettype::findAll();
+    $d->_datasources= Datasource::findAll();
 
     return $d;
 };
